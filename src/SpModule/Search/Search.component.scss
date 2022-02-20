@@ -1,0 +1,30 @@
+.sp-search-wrapper {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 0.25em;
+}
+.sp-search-field {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5em auto;
+    Button {
+        margin-left: 8px;
+    }
+}
+.sp-radio-group {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    Radio {
+        margin: 0 25px;
+    }
+}
+
+

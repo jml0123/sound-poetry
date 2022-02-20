@@ -9,6 +9,7 @@ const SpFacade = () => {
      */
     const selectCurrentSearchResults = useSelector((state: SpState) => state.currentSearchResults);
     const selectSearchLoading = useSelector((state: SpState) => state.searchLoading);
+    const selectUserHasSearched = useSelector((state: SpState) => state.userHasSearched);
     /**
      * DISPATCHERS
      */
@@ -21,10 +22,12 @@ const SpFacade = () => {
     const searchPoemDbByTitle = (title: string) => {
         dispatch({type: SEARCH_POEM_DB_BY_TITLE, title})
     }
+    
     return {
         /* SELECTORS */
         selectCurrentSearchResults,
         selectSearchLoading,
+        selectUserHasSearched,
         /* DISPATCHERS */
         searchPoemDbByAuthor,
         searchPoemDbByLine,

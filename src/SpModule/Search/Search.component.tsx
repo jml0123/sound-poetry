@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import SpFacade from '../sound-poems.facade';
-
+import { Input, Radio, Button, RadioGroup } from '@douyinfe/semi-ui';
+import './Search.component.scss';
+import { RadioChangeEvent } from '@douyinfe/semi-ui/lib/es/radio';
 export default function SearchComponent() {
 const [searchTerm, setSearchTerm] = useState('');
 const [searchType, setSearchType] = useState('LINE');
@@ -8,7 +10,8 @@ const [searchType, setSearchType] = useState('LINE');
 const { 
   searchPoemDbByAuthor,
   searchPoemDbByLine,
-  searchPoemDbByTitle
+  searchPoemDbByTitle,
+  selectSearchLoading
 } = SpFacade();
 
 const search = () => {
@@ -26,34 +29,30 @@ const search = () => {
 }
 
 return (
-  <div className="sp-search-field">
-    <h1>Search</h1>
-    <input type="text" onChange={e => setSearchTerm(e.target.value)}></input>
-    <input 
-      type="radio" 
-      id="search-by-line" 
-      name="line" 
-      value="LINE" 
-      onChange={e => setSearchType('LINE')} 
-      checked></input>
-    <label htmlFor="line">Search By Line</label>
-    <input 
-      type="radio" 
-      id="search-by-author" 
-      name="author" 
-      value="AUTHOR"
-      onChange={e => setSearchType('AUTHOR')} 
-      ></input>
-      <label htmlFor="line">Search By Author</label>
-    <input 
-      type="radio" 
-      id="search-by-title" 
-      name="title" 
-      value="TITLE"
-      onChange={e => setSearchType('TITLE')} 
-      ></input>
-      <label htmlFor="line">Search By Title</label>
-    <button type="submit" onClick={e => search()}>Search</button>
+  <div className="sp-search-wrapper">
+    <div className="sp-search-field">
+      <Input placeholder="Search Poem DB" type="text" onChange={value => setSearchTerm(value)}></Input>
+      <Button theme="solid" type="tertiary" onClick={e => search()}>Search</Button>
+    </div>
+    <div className="sp-radio-group">
+      <RadioGroup onChange={(e: RadioChangeEvent)=> setSearchType(e.target.value)} value={searchType}>
+        <Radio
+          value="LINE" 
+          checked>
+          By Line
+        </Radio>
+        <Radio
+          value="AUTHOR"
+        >
+          By Author
+          </Radio>
+        <Radio 
+          value="TITLE"
+        >
+          By Title
+        </Radio>
+      </RadioGroup>
+    </div>
   </div>
 );
   

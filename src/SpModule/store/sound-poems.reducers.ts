@@ -7,11 +7,13 @@ import SpEffects from './sound-poems.effects';
 export type SpState = {
   currentSearchResults: PoemDto[];
   searchLoading: boolean;
+  userHasSearched: boolean;
 }
 
 const initialState: SpState = {
     currentSearchResults: [],
-    searchLoading: false
+    searchLoading: false,
+    userHasSearched: false
 }
 
 
@@ -23,7 +25,23 @@ const SpReducer = (
       case spActionTypes.SEARCH_POEM_DB_BY_LINE:
         return {
           ...state,
-          searchLoading: true
+          searchLoading: true,
+          userHasSearched: true,
+          currentSearchResults: [],
+        }
+      case spActionTypes.SEARCH_POEM_DB_BY_AUTHOR:
+        return {
+          ...state,
+          searchLoading: true,
+          userHasSearched: true,
+          currentSearchResults: [],
+        }
+      case spActionTypes.SEARCH_POEM_DB_BY_TITLE:
+        return {
+          ...state,
+          searchLoading: true,
+          userHasSearched: true,
+          currentSearchResults: [],
         }
       case spActionTypes.SET_SEARCH_POEM_DB_RESULTS: 
         return {

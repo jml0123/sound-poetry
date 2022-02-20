@@ -1,0 +1,74 @@
+@import '../sound-poems.styles.scss';
+
+.sp-search-result-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+    &--title {
+        font-size: $fontLg;
+        font-weight: normal;
+        margin: $marginSm;
+        color: $linkColorDefault;
+    }
+    &--author {
+        font-size: $fontMd;
+        font-weight: normal;
+        margin: $marginSm;
+    }
+    &--preview {
+        font-size: $fontXs;
+        font-weight: normal;
+        white-space: pre-line;
+        font-style: italic;
+    }
+}
+
+.sp-search-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    margin: 1em auto;
+}
+
+.sp-search-results-wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.sp-author-span {
+    color: $linkColorDefault;
+}
+.sp-by-span {
+    font-size: $fontS;
+}
+
+.sp-search-loading {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+        font-size: $fontS;
+        color: grey;
+        margin: 0.66em;
+    }
+}
+
+.sp-unsearched {
+    margin: 1em;
+    font-style: italic;
+    color: grey;
+}
+
+
+Spin {
+    margin: 100px;
+}
