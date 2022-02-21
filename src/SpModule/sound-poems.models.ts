@@ -7,4 +7,5 @@ export interface PoemDto {
     title: string;
     author: string;
     lines: string[];
+    linecount: string | number;
   }

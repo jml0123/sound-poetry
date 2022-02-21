@@ -13,7 +13,7 @@ export default class SpHttpService {
   };
 
   static async searchByTitle(title: string): Promise<PoemDto[]> {
-   return axios.get(`${this.rootUrl}/author/${title.split(' ').join('%20')}`).then(res => {
+   return axios.get(`${this.rootUrl}/title/${title.split(' ').join('%20')}`).then(res => {
       const poemData: PoemDto[] = res.data;
       return poemData
     });

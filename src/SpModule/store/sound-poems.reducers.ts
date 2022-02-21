@@ -6,14 +6,16 @@ import SpEffects from './sound-poems.effects';
 
 export type SpState = {
   currentSearchResults: PoemDto[];
+  currentPoem: PoemDto | null,
   searchLoading: boolean;
   userHasSearched: boolean;
 }
 
 const initialState: SpState = {
     currentSearchResults: [],
+    currentPoem: null,
     searchLoading: false,
-    userHasSearched: false
+    userHasSearched: false,
 }
 
 
@@ -27,6 +29,7 @@ const SpReducer = (
           ...state,
           searchLoading: true,
           userHasSearched: true,
+          currentPoem: null,
           currentSearchResults: [],
         }
       case spActionTypes.SEARCH_POEM_DB_BY_AUTHOR:
@@ -34,6 +37,7 @@ const SpReducer = (
           ...state,
           searchLoading: true,
           userHasSearched: true,
+          currentPoem: null,
           currentSearchResults: [],
         }
       case spActionTypes.SEARCH_POEM_DB_BY_TITLE:
@@ -41,13 +45,20 @@ const SpReducer = (
           ...state,
           searchLoading: true,
           userHasSearched: true,
+          currentPoem: null,
           currentSearchResults: [],
         }
       case spActionTypes.SET_SEARCH_POEM_DB_RESULTS: 
         return {
           ...state,
           currentSearchResults: action.results,
+          currentPoem: null,
           searchLoading: false
+        }
+      case spActionTypes.SET_CURRENT_POEM: 
+        return {
+          ...state,
+          currentPoem: action.poem,
         }
     }
     return state
